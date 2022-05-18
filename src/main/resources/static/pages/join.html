@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../src/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&family=Nunito:ital,wght@1,600&display=swap" rel="stylesheet" />
+    <title>MeltingPop : 회원가입</title>
+  </head>
+
+  <body id="join-page">
+    <main class="join-wrap">
+      <h1 class="join-logo">
+        <a href="/"><i class="fa-solid fa-compact-disc"></i>MeltingPop</a>
+      </h1>
+      <form action="/join" method="post">
+        <div class="input-area" id="join-email">
+          <input type="email" name="userEmail" id="userEmail" autocomplete="off" required />
+          <label for="userEmail">이메일</label>
+        </div>
+        <div class="input-area" id="login-pw">
+          <input type="password" name="userPw" id="userPw" autocomplete="off" required />
+          <label for="userPw">비밀번호</label>
+        </div>
+        <div class="input-area" id="join-nickname">
+          <input type="text" name="userId" id="userId" autocomplete="off" required />
+          <label for="userId">닉네임</label>
+        </div>
+        <div class="btn-area">
+          <button type="submit" id="btn">가입</button>
+        </div>
+      </form>
+    </main>
+    <script src="../src/js/login.js"></script>
+    <script src="https://kit.fontawesome.com/fd5e96c4d0.js" crossorigin="anonymous"></script>
+  </body>
+</html>

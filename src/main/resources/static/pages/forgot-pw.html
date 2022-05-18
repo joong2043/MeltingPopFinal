@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../src/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&family=Nunito:ital,wght@1,600&display=swap" rel="stylesheet" />
+    <title>MeltingPop : 비밀번호 찾기</title>
+  </head>
+
+  <body id="forgot-pw-page">
+    <main class="forgot-pw-wrap">
+      <h1 class="forgot-pw-logo">
+        <a href="../index.html"><i class="fa-solid fa-compact-disc"></i>MeltingPop</a>
+      </h1>
+      <form action="#">
+        <div class="input-area" id="forgot-pw-id">
+          <input type="text" name="id" id="id" autocomplete="off" required />
+          <label for="id">이메일</label>
+        </div>
+        <div class="btn-area">
+          <button type="submit" id="btn">전송</button>
+        </div>
+      </form>
+      <ul class="usr-opt">
+        <li>
+          <a href="login.html" id="forgot-pw">로그인</a>
+        </li>
+        <li class="bar">|</li>
+        <li>
+          <a href="join.html" id="join">회원가입</a>
+        </li>
+      </ul>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../src/js/login.js"></script>
+    <script src="https://kit.fontawesome.com/fd5e96c4d0.js" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../src/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&family=Nunito:ital,wght@1,600&display=swap" rel="stylesheet" />
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+    <title>MeltingPop(관리자) : 가사 편집</title>
+</head>
+
+<body>
+<nav class="navigation">
+    <h1 class="nav-logo">
+        <a href="/"><i class="fa-solid fa-compact-disc"></i>MeltingPop</a>
+    </h1>
+    <form action="search-result.html" class="nav-search">
+        <input type="text" name="search" class="search-box" placeholder="검색어를 입력하세요." />
+        <button type="submit" class="search-btn">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        </button>
+    </form>
+    <a href="login.html" class="nav-usr">로그인/회원가입<i class="fa-solid fa-user"></i></a>
+</nav>
+
+<main id="wrapper">
+    <article class="board-wrap">
+        <section class="board-title">
+            <h3>가사 편집</h3>
+        </section>
+        <section class="board-content">
+            <form action="view-lyrics.html" class="board-view" id="edit-form">
+                <section class="song-view">
+                    <section id="en-song" class="song-section">
+                        <div id="en-title" class="song-title">
+                            <h4>On The Ground</h4>
+                        </div>
+                        <pre id="en-lyrics" class="song-lyrics">
+My life's been magic, seems fantastic
+I used to have a hole in the wall with a mattress
+Funny when you want it, suddenly you have it
+You find out that your gold's just plastic
+Every day, every night
+I've been thinkin' back on you and I
+Every day, every night
+I worked my whole life
+Just to get right, just to be like
+"Look at me, I'm never coming down"
+I worked my whole life
+Just to get high, just to realize
+Everything I need is on the
+Everything I need is on the ground</pre
+                        >
+                    </section>
+                    <section id="ko-song" class="song-section">
+                        <textarea id="edit-title" class="song-title">지상에</textarea>
+                        <textarea id="edit-lyrics" class="song-lyrics">
+내 인생은 마법 같았어, 환상적인 것 같아
+나는 매트리스로 벽에 구멍을 내곤 했어
+원할 때 재미있다, 갑자기 갖게 된다
+당신의 금은 플라스틱일 뿐이라는 것을 알게 됩니다.
+매일 밤낮으로
+난 너와 나에 대해 생각해 봤어
+매일 밤낮으로
+나는 평생을 일했다
+바로 하기 위해, 닮기 위해
+"나를 봐, 난 절대 내려오지 않아"
+나는 평생을 일했다
+단지 높이 오르기 위해, 단지 깨닫기 위해
+내가 필요한 모든 것은
+내가 필요한 모든 것은 지상에 있다</textarea
+                        >
+                    </section>
+                </section>
+                <section class="btn-wrap">
+                    <a href="view-lyrics.html" class="board-btn" id="back-btn">취소</a>
+                    <button type="submit" class="board-btn" id="save-btn">요청</button>
+                </section>
+            </form>
+        </section>
+    </article>
+</main>
+<script src="https://kit.fontawesome.com/fd5e96c4d0.js" crossorigin="anonymous"></script>
+</body>
+</html>
