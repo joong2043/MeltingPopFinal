@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+//sdafsd afsad sdafsdaiohsdoi
+// adsfjasdiogjioewrjoi
 @Controller
 public class BoardController {
     private BoardService boardService;
