@@ -532,3 +532,27 @@ pre {
   padding: 0 10px;
   color: #111;
 }
+#edit-english-lyrics {
+  width:80%;
+  height:20em;
+  resize: none;
+}
+#edit-korean-lyrics {
+  width:80%;
+  height: 20em;
+  resize: none;
+
+}
+
+#edit-english-title {
+  width:80%;
+  height:3.5em;
+  resize: none;
+
+}
+#edit-korean-title {
+  width:80%;
+  height: 3.5em;
+  resize: none;
+
+}

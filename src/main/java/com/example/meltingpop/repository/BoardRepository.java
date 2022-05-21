@@ -18,9 +18,12 @@ public interface BoardRepository extends JpaRepository<Board, Long> {
 
     //List<BoardDto> findByBoardTitleAndWriter(String boardTitle,String boardWriter);
 
+    @Query("select u from Board u where u.songtitle=:song_title")
+    List<Board> findBySongtitle(@Param("song_title")String song_title);
+
     @Modifying
-    @Query("update Board u set u.content =:changedContent where u.boardNum=:boardNum")
-    Integer updateBoard(@Param("changedContent")String changedContent, @Param("boardNum")Long boardNum);
+    @Query("update Board u set u.korean_lyric =:changedLyric where u.songtitle=:song_title")
+    Integer updateKoreanLyric(@Param("changedLyric")String changedContent, @Param("song_title")String song_title);
 
 }
 

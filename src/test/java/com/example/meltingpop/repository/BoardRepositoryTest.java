@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
@@ -19,14 +20,17 @@ public class BoardRepositoryTest {
     public void getBoard(){
         Board board = Board.builder()
                 .writer("joonghyun")
-                .title("hello1")
-                .content("hello1")
+                .singer("joonghyun")
+                .songtitle("hello")
+                .english_lyric("hello")
+                .korean_lyric("안녕")
+                .createdDate(LocalDateTime.now())
                 .build();
         boardRepository.save(board);
 
         List<Board> boardList = boardRepository.findAll();
 
-        System.out.println(boardList.get(0).getTitle());
+        System.out.println(boardList.get(0).getSongtitle());
     }
 }
 

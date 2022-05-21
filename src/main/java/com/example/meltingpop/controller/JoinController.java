@@ -26,5 +26,4 @@ public class JoinController {
 
         return "static/pages/login";
     }
-
 }

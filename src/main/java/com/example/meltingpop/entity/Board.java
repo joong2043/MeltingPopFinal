@@ -23,30 +23,34 @@ public class Board {
     private Long boardNum;
 
     @Column
-    private String title;
+    private String songtitle;
+
+    @Column
+    private String singer;
 
     @Column
     private String writer;
 
-    @Column
-    private String content;
+    @Column(length = 5000)
+    private String english_lyric;
+
+    @Column(length = 5000)
+    private String korean_lyric;
 
     @Column
     @CreatedDate
     private LocalDateTime createdDate;
 
-    @Column
-    @LastModifiedDate
-    private LocalDateTime modifiedDate;
 
 
     @Builder
-    public Board(Long boardNum, String title, String writer, String content, LocalDateTime createdDate, LocalDateTime modifiedDate){
+    public Board(Long boardNum, String songtitle, String singer, String writer, String korean_lyric, String english_lyric, LocalDateTime createdDate){
         this.boardNum = boardNum;
-        this.title = title;
+        this.songtitle = songtitle;
+        this.singer = singer;
         this.writer = writer;
-        this.content = content;
+        this.korean_lyric = korean_lyric;
         this.createdDate = createdDate;
-        this.modifiedDate = modifiedDate;
+        this.english_lyric = english_lyric;
     }
 }

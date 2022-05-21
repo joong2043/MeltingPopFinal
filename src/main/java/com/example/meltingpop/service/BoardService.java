@@ -33,11 +33,12 @@ public class BoardService {
         for(Board board:boardList){
             BoardDto boardDto = BoardDto.builder()
                     .boardNum(board.getBoardNum())
-                    .boardTitle(board.getTitle())
+                    .boardTitle(board.getSongtitle())
                     .boardWriter(board.getWriter())
-                    .boardContent(board.getContent())
+                    .singer(board.getSinger())
+                    .englishLyric(board.getEnglish_lyric())
+                    .koreanLyric(board.getKorean_lyric())
                     .boardCreatedDate(board.getCreatedDate())
-                    .boardModifiedDate(board.getModifiedDate())
                     .build();
             boardDtoList.add(boardDto);
         }
@@ -45,24 +46,29 @@ public class BoardService {
     }
 
     @Transactional
-    public BoardDto getPost(Long boardNum){
-        Board board = boardRepository.findById(boardNum).get();
+    public List<BoardDto> getPost(String song_title){
 
-        BoardDto boardDto = BoardDto.builder()
-                .boardNum(board.getBoardNum())
-                .boardWriter(board.getWriter())
-                .boardTitle(board.getTitle())
-                .boardContent(board.getContent())
-                .boardCreatedDate(board.getCreatedDate())
-                .boardModifiedDate(board.getModifiedDate())
-                .build();
+        List<Board> boardList = boardRepository.findBySongtitle(song_title);
+        List<BoardDto> boardDtoList = new ArrayList<>();
 
-        return boardDto;
+        for(Board board:boardList) {
+            BoardDto boardDto = BoardDto.builder()
+                    .boardNum(board.getBoardNum())
+                    .boardWriter(board.getWriter())
+                    .singer(board.getSinger())
+                    .englishLyric(board.getEnglish_lyric())
+                    .koreanLyric(board.getKorean_lyric())
+                    .boardCreatedDate(board.getCreatedDate())
+                    .build();
+            boardDtoList.add(boardDto);
+        }
+
+        return boardDtoList;
     }
 
     @Transactional
-    public void updatePost(String changedContent, Long boardNum){
-        boardRepository.updateBoard(changedContent, boardNum);
+    public void updatePost(String changedContent, String song_title){
+        boardRepository.updateKoreanLyric(changedContent, song_title);
     }
 
     @Transactional
