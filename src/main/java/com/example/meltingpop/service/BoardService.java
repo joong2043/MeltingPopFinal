@@ -31,17 +31,18 @@ public class BoardService {
         List<BoardDto> boardDtoList = new ArrayList<>();
 
         for(Board board:boardList){
-            BoardDto boardDto = BoardDto.builder()
-                    .boardNum(board.getBoardNum())
-                    .boardTitle(board.getSongtitle())
-                    .boardWriter(board.getWriter())
-                    .singer(board.getSinger())
-                    .englishLyric(board.getEnglish_lyric())
-                    .koreanLyric(board.getKorean_lyric())
-                    .boardCreatedDate(board.getCreatedDate())
-                    .build();
+                BoardDto boardDto = BoardDto.builder()
+                        .boardNum(board.getBoardNum())
+                        .boardTitle(board.getSongtitle())
+                        .boardWriter(board.getWriter())
+                        .singer(board.getSinger())
+                        .englishLyric(board.getEnglish_lyric())
+                        .koreanLyric(board.getKorean_lyric())
+                        .boardCreatedDate(board.getCreatedDate())
+                        .build();
             boardDtoList.add(boardDto);
         }
+
         return boardDtoList;
     }
 
@@ -67,6 +68,27 @@ public class BoardService {
     }
 
     @Transactional
+    public List<BoardDto> getPostFromWriter(String song_title, String writer){
+        //Board에서 찾은 데이터들을 BoardDto로 전달하는 역할
+        List<Board> boardList = boardRepository.findBySongtitleandwriter(song_title, writer);
+        List<BoardDto> boardDtoList = new ArrayList<>();
+
+        for(Board board:boardList){
+            BoardDto boardDto = BoardDto.builder()
+                    .boardNum(board.getBoardNum())
+                    .boardTitle(board.getSongtitle())
+                    .boardWriter(board.getWriter())
+                    .singer(board.getSinger())
+                    .englishLyric(board.getEnglish_lyric())
+                    .koreanLyric(board.getKorean_lyric())
+                    .boardCreatedDate(board.getCreatedDate())
+                    .build();
+            boardDtoList.add(boardDto);
+        }
+        return boardDtoList;
+    }
+
+    @Transactional
     public void updatePost(String changedContent, String song_title){
         boardRepository.updateKoreanLyric(changedContent, song_title);
     }
@@ -74,6 +96,20 @@ public class BoardService {
     @Transactional
     public void deletePost(Long boardNum){
         boardRepository.deleteById(boardNum);
+    }
+
+    @Transactional
+    public void deleteBoard(BoardDto boardDto){
+        Board board = Board.builder()
+                .songtitle(boardDto.getBoardTitle())
+                .singer(boardDto.getSinger())
+                .writer(boardDto.getBoardWriter())
+                .korean_lyric(boardDto.getKoreanLyric())
+                .english_lyric(boardDto.getEnglishLyric())
+                .createdDate(boardDto.getBoardCreatedDate())
+                .boardNum(boardDto.getBoardNum())
+                .build();
+        boardRepository.delete(board);
     }
 
 }

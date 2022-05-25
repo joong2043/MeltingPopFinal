@@ -4,26 +4,23 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/css/style.css" />
-    <link
-            href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&family=Nunito:ital,wght@1,600&display=swap"
-            rel="stylesheet"
-    />
+    <link rel="stylesheet" href="/../src/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&family=Nunito:ital,wght@1,600&display=swap" rel="stylesheet"/>
     <title>MeltingPop</title>
 </head>
 
 <body>
 <nav class="navigation">
     <h1 class="nav-logo">
-        <a href="/"
-        ><i class="fa-solid fa-compact-disc"></i>MeltingPop_Main</a
-        >
+        <a href="/">
+            <i class="fa-solid fa-compact-disc">
+            </i>MeltingPop</a>
     </h1>
 
-    <form action="pages/search-result.html" class="nav-search">
+    <form action="/search" method="get" class="nav-search">
         <input
                 type="text"
-                name="search"
+                name="search_title"
                 class="search-box"
                 placeholder="검색어를 입력하세요."
         />
@@ -34,7 +31,7 @@
     </form>
 
     <form action="/logout" method="get">
-        <a id="logout" href="/logout" class="nav-usr">로그아웃<i class="fa-solid fa-user">
+        <a id="logout" href="/logout" class="nav-usr" th:text="|${userName}님 로그아웃|">데이터<i class="fa-solid fa-user">
 
         </i>
         </a>
@@ -47,75 +44,27 @@
             <h4 class="category-head">
                 <a href="pages/updated-songs.html" class="category-link">최근 수정 ></a>
             </h4>
-            <ul>
-                <li class="category-item">
-                    <a href="pages/view-lyrics.html">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Corporis eligendi, quia eius voluptatem similique error sed sunt
-                        neque ducimus repudiandae, aut ratione architecto culpa
-                        doloribus vero fugiat quam, nisi ad?</a>
-                </li>
+            <div class="tab-content">
+                <table>
+                    <tbody width="400px">
+                    <tr style="cursor:pointer;" th:each = "list, stat: ${modified_song_list}" th:onclick = "'window.location.href = \'' + @{/view-lyric(song_title=${list.boardTitle}, singer=${list.singer})} +'\''">
+                        <td th:text="|${stat.index}|+1+'. '"></td>
+                        <td th:name="list_title" th:text="${list.boardTitle}">제목</td>
+                        <td th:name="list_singer" th:text="${list.singer}">가수</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
 
-
-                <li class="category-item">
-                    <a href="pages/view-lyrics.html">updated</a>
-                </li>
-                <li class="category-item">
-                    <a href="pages/view-lyrics.html">updated</a>
-                </li>
-                <li class="category-item">
-                    <a href="pages/view-lyrics.html">updated</a>
-                </li>
-                <li class="category-item">
-                    <a href="pages/view-lyrics.html">updated</a>
-                </li>
-                <li class="category-item">
-                    <a href="pages/view-lyrics.html">updated</a>
-                </li>
-                <li class="category-item">
-                    <a href="pages/view-lyrics.html">updated</a>
-                </li>
-                <li class="category-item">
-                    <a href="pages/view-lyrics.html">updated</a>
-                </li>
-                <li class="category-item">
-                    <a href="pages/view-lyrics.html">updated</a>
-                </li>
-                <li class="category-item">
-                    <a href="pages/view-lyrics.html">updated</a>
-                </li>
-                <li class="category-item">
-                    <a href="pages/view-lyrics.html">updated</a>
-                </li>
-                <li class="category-item">
-                    <a href="pages/view-lyrics.html">updated</a>
-                </li>
-                <li class="category-item">
-                    <a href="pages/view-lyrics.html">updated</a>
-                </li>
-                <li class="category-item">
-                    <a href="pages/view-lyrics.html">updated</a>
-                </li>
-                <li class="category-item">
-                    <a href="pages/view-lyrics.html">updated</a>
-                </li>
-                <li class="category-item">
-                    <a href="pages/view-lyrics.html">updated</a>
-                </li>
-                <li class="category-item">
-                    <a href="pages/view-lyrics.html">updated</a>
-                </li>
-                <li class="category-item">
-                    <a href="pages/view-lyrics.html">updated</a>
-                </li>
-            </ul>
         </div>
     </section>
 
-    <section class="index-section">
+    <section style="visibility: hidden" class="index-section">
         <div class="category">
             <h4 class="category-head">
                 <a href="pages/new-songs.html" class="category-link">최신 음악 ></a>
             </h4>
+
             <ul>
                 <li class="category-item">
                     <a href="pages/view-lyrics.html">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos

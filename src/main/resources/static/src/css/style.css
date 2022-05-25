@@ -334,12 +334,15 @@ pre {
 
 /* FUNC: tab-content */
 .tab-content {
-  padding: 20px;
-  margin: 0 10px 10px 10px;
+  padding: 0px;
+  margin: 0 0px 0px 0px;
+  /*
   border-left: 1px solid #333;
   border-right: 1px solid #333;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solisd #333;
+  */
   font-family: 'Noto Sans KR', sans-serif;
+
   font-weight: 200;
 }
 
@@ -367,6 +370,31 @@ pre {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+.tab-content-adminlist{
+  padding: 15px;
+  margin: 0;
+  border-left: 1px solid #333;
+  border-right: 1px solid #333;
+  border-bottom: 1px solid #333;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 200;
+}
+
+.tab-content-adminlist table{
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.tab-content-adminlist td{
+  padding: 2px;
+  font-family: 'Noto Sans KR', sans-serif;
+  border-bottom: 1px solid #d3d3d3;
+  font-weight: 200;
+}
+
+
 
 .tab-content th {
   text-align: left;

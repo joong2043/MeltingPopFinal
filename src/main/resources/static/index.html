@@ -4,14 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/css/style.css" />
+    <link rel="stylesheet" href="/src/css/style.css" />
     <link
             href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&family=Nunito:ital,wght@1,600&display=swap"
             rel="stylesheet"
     />
     <title>MeltingPop</title>
 </head>
-
 <body>
 <nav class="navigation">
     <h1 class="nav-logo">
@@ -47,75 +46,26 @@
             <h4 class="category-head">
                 <a href="pages/updated-songs.html" class="category-link">최근 수정 ></a>
             </h4>
-            <ul>
-                    <li class="category-item">
-                        <a href="pages/view-lyrics.html">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Corporis eligendi, quia eius voluptatem similique error sed sunt
-                            neque ducimus repudiandae, aut ratione architecto culpa
-                            doloribus vero fugiat quam, nisi ad?</a>
-                    </li>
-
-
-                <li class="category-item">
-                    <a href="pages/view-lyrics.html">updated</a>
-                </li>
-                <li class="category-item">
-                    <a href="pages/view-lyrics.html">updated</a>
-                </li>
-                <li class="category-item">
-                    <a href="pages/view-lyrics.html">updated</a>
-                </li>
-                <li class="category-item">
-                    <a href="pages/view-lyrics.html">updated</a>
-                </li>
-                <li class="category-item">
-                    <a href="pages/view-lyrics.html">updated</a>
-                </li>
-                <li class="category-item">
-                    <a href="pages/view-lyrics.html">updated</a>
-                </li>
-                <li class="category-item">
-                    <a href="pages/view-lyrics.html">updated</a>
-                </li>
-                <li class="category-item">
-                    <a href="pages/view-lyrics.html">updated</a>
-                </li>
-                <li class="category-item">
-                    <a href="pages/view-lyrics.html">updated</a>
-                </li>
-                <li class="category-item">
-                    <a href="pages/view-lyrics.html">updated</a>
-                </li>
-                <li class="category-item">
-                    <a href="pages/view-lyrics.html">updated</a>
-                </li>
-                <li class="category-item">
-                    <a href="pages/view-lyrics.html">updated</a>
-                </li>
-                <li class="category-item">
-                    <a href="pages/view-lyrics.html">updated</a>
-                </li>
-                <li class="category-item">
-                    <a href="pages/view-lyrics.html">updated</a>
-                </li>
-                <li class="category-item">
-                    <a href="pages/view-lyrics.html">updated</a>
-                </li>
-                <li class="category-item">
-                    <a href="pages/view-lyrics.html">updated</a>
-                </li>
-                <li class="category-item">
-                    <a href="pages/view-lyrics.html">updated</a>
-                </li>
-            </ul>
+            <div class="tab-content">
+                <table>
+                    <tbody width="400px">
+                    <tr style="cursor:pointer;" th:each = "list, stat: ${modified_song_list}" th:onclick = "'window.location.href = \'' + @{/view-lyric(song_title=${list.boardTitle}, singer=${list.singer})} +'\''">
+                        <td th:text="|${stat.index}|+1+'.'"></td>
+                        <td th:name="list_title" th:text="${list.boardTitle}">제목</td>
+                        <td th:name="list_singer" th:text="${list.singer}">가수</td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
+        </div>
     </section>
 
-    <section class="index-section">
+    <section style="visibility: hidden" class="index-section">
         <div class="category">
             <h4 class="category-head">
                 <a href="pages/new-songs.html" class="category-link">최신 음악 ></a>
             </h4>
+
             <ul>
                 <li class="category-item">
                     <a href="pages/view-lyrics.html">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos

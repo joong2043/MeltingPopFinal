@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../src/css/style.css" />
+    <link rel="stylesheet" href="/../src/css/style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&family=Nunito:ital,wght@1,600&display=swap" rel="stylesheet" />
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
     <title>MeltingPop : 가사 등록</title>
@@ -15,8 +15,8 @@
     <h1 class="nav-logo">
         <a href="/"><i class="fa-solid fa-compact-disc"></i>MeltingPop</a>
     </h1>
-    <form action="search-result.html" class="nav-search">
-        <input type="text" name="search" class="search-box" placeholder="검색어를 입력하세요." />
+    <form action="/search" method="get" class="nav-search">
+        <input type="text" name="search_title" class="search-box" placeholder="검색어를 입력하세요." />
         <button type="submit" class="search-btn">
             <i class="fa-solid fa-magnifying-glass search-icon"></i>
         </button>
@@ -41,10 +41,10 @@
 
                             </textarea>
                         </pre>
-                 </section>
+                    </section>
                     <section id="ko-song" class="song-section">
                         <pre id="edit-song-korean" class="song-title">
-                            <textarea id="edit-korean-title" name="edit-korean-title" class="song-title" th:text="${song_info_title}"></textarea>
+                            <textarea style="visibility:hidden" id="edit-korean-title" name="edit-korean-title" class="song-title" th:text="${song_info_title}"></textarea>
                             <textarea id="edit-korean-lyrics" name="edit-korean-lyrics" class="song-lyrics" th:text="${song_info_korLyric}"></textarea>
                         </pre>
                     </section>

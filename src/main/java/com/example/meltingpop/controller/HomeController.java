@@ -1,19 +1,25 @@
 package com.example.meltingpop.controller;
 
+import com.example.meltingpop.dto.AdminBoardDto;
 import com.example.meltingpop.entity.User;
-import com.example.meltingpop.repository.UserRepository;
+import com.example.meltingpop.service.AdminBoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import java.util.List;
 
 import static com.example.meltingpop.session.SessionConst.LOGIN_USER;
 
 @Controller
 public class HomeController {
+    @Autowired
+    AdminBoardService adminBoardService;
+
     @RequestMapping("/forgot")
     public String home1(HttpServletRequest request){
         HttpSession session = request.getSession(false);
@@ -21,14 +27,21 @@ public class HomeController {
         return "/static/pages/forgot-pw";
     }
     @GetMapping("/")
-    public String home2(HttpServletRequest request){
+    public String home2(HttpServletRequest request, Model model){
+        List<AdminBoardDto> adminBoardDtoList = adminBoardService.getBoardList();
+        model.addAttribute("modified_song_list",adminBoardDtoList);
+
         HttpSession session = request.getSession(false);
+
         if (session==null){
             return "/static/index";
         }
+
         else{
-            return "/templates/main";
+            model.addAttribute("userName",((User) session.getAttribute(LOGIN_USER)).getUserId());
+            return "/static/pages/main";
         }
+
     }
     @GetMapping("/admin-index")
     public String home3(){

@@ -1,23 +1,14 @@
 package com.example.meltingpop.controller;
 
-import com.example.meltingpop.dto.UserDto;
 import com.example.meltingpop.entity.User;
 import com.example.meltingpop.service.UserService;
-import com.example.meltingpop.session.SessionConst;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
-import reactor.netty.http.server.HttpServer;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.HashMap;
-import java.util.Map;
 
 import static com.example.meltingpop.session.SessionConst.LOGIN_USER;
 
@@ -56,9 +47,10 @@ public class LoginController {
             //LOGIN_USER로 바인딩 된 객체를 가져온다.
 
             System.out.println("회원 로그인 성공");
+            String currentUserId = ((User)session.getAttribute(LOGIN_USER)).getUserId();
+            model.addAttribute("currentUserId",currentUserId);
 
-
-            return "templates/main";
+            return "redirect://localhost:8081";
         }
 
         else if(loginUser.getUserAuthentication()==1){
@@ -66,10 +58,11 @@ public class LoginController {
             System.out.println("관리자 로그인 성공");
             System.out.println("세션 확인: "+session.getAttribute(LOGIN_USER));
             //LOGIN_USER로 바인딩 된 객체를 가져온다.
+            //session.getAttribute(LOGIN_USER)
         }
         System.out.println("세션 재확인: "+session.getAttribute(LOGIN_USER));
 
-        return "static/pages/admin-index";
+        return "redirect://localhost:8081/admin-list";
     }
 
     // 프론트(메인 페이지)에서 로그인 버튼 누르면 /login으로 넘어가도록 설정
@@ -90,6 +83,6 @@ public class LoginController {
             session.invalidate();
         }
 
-        return "static/index";
+        return "redirect://localhost:8081";
     }
 }

@@ -4,35 +4,46 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../src/css/style.css" />
+    <link rel="stylesheet" href="/../src/css/style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&family=Nunito:ital,wght@1,600&display=swap" rel="stylesheet" />
-    <title>MeltingPop</title>
+    <title>MeltingPop : 관리자</title>
   </head>
 
   <body>
     <nav class="navigation">
       <h1 class="nav-logo">
-        <a href="../index.html"><i class="fa-solid fa-compact-disc"></i>MeltingPop</a>
+        <a href="/"><i class="fa-solid fa-compact-disc"></i>MeltingPop</a>
       </h1>
-      <form action="search-result.html" class="nav-search">
-        <input type="text" name="search" class="search-box" placeholder="검색어를 입력하세요." />
+      <form action="/search" class="nav-search">
+        <input type="text" name="search_title" class="search-box" placeholder="검색어를 입력하세요." />
         <button type="submit" class="search-btn">
           <i class="fa-solid fa-magnifying-glass search-icon"></i>
         </button>
       </form>
-      {{^sessionedUser}}
-      <a id="login" href="login.html" class="nav-usr">로그인/회원가입<i class="fa-solid fa-user"></i></a>
-      {{/sessionedUser}} {{#sessionedUser}}
-      <a id="logout" href="index.html" class="nav-usr">로그아웃<i class="fa-solid fa-user"></i></a>
-      {{/sessionedUser}}
+
+      <a id="logout" href="/" class="nav-usr">로그아웃<i class="fa-solid fa-user"></i></a>
     </nav>
+
     <div id="main">
       <section class="index-section" id="admin-index">
         <div class="category">
           <h4 class="category-head">
-            <a href="request.html" class="category-link">편집 요청 ></a>
+            <a href="request.html" class="category-link">편집 요청</a>
           </h4>
+          <div class="tab-content-adminlist">
+              <table>
+                <tbody>
+                  <tr th:each="list : ${admin_list}" th:onclick="'window.location.href = \'' + @{/admin-post(song_title=${list.boardTitle}, writer=${list.boardWriter})} + '\'' ">
+                    <td th:name="list_title" th:text = "${list.boardTitle}">노래제목</td>
+                    <td th:text = "${list.singer}">가수</td>
+                    <td th:text = "${list.boardWriter}">게시글 작성자</td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+          <!--
           <ol>
+
             <li class="category-item">
               <a href="view-lyrics.html">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates a, ad adipisci suscipit dolor nihil accusamus optio exercitationem fugiat saepe ex repellendus ea labore accusantium praesentium at atque molestiae alias.</a>
             </li>
@@ -85,9 +96,11 @@
               <a href="view-lyrics.html">top</a>
             </li>
           </ol>
+          -->
         </div>
       </section>
     </div>
+
     <footer></footer>
     <script src="https://kit.fontawesome.com/fd5e96c4d0.js" crossorigin="anonymous"></script>
   </body>

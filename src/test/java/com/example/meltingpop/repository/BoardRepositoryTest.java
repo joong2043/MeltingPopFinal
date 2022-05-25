@@ -15,7 +15,7 @@ import java.util.List;
 public class BoardRepositoryTest {
     @Autowired
     BoardRepository boardRepository;
-
+/*
     @Test
     public void getBoard(){
         Board board = Board.builder()
@@ -31,6 +31,13 @@ public class BoardRepositoryTest {
         List<Board> boardList = boardRepository.findAll();
 
         System.out.println(boardList.get(0).getSongtitle());
+
+    }
+    */
+
+    @Test
+    public void deleteAllBoard(){
+        boardRepository.deleteAll();
     }
 }
 
