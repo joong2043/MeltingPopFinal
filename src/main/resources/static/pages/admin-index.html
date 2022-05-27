@@ -31,77 +31,19 @@
             <a href="request.html" class="category-link">편집 요청</a>
           </h4>
           <div class="tab-content-adminlist">
-              <table>
-                <tbody>
-                  <tr th:each="list : ${admin_list}" th:onclick="'window.location.href = \'' + @{/admin-post(song_title=${list.boardTitle}, writer=${list.boardWriter})} + '\'' ">
-                    <td th:name="list_title" th:text = "${list.boardTitle}">노래제목</td>
-                    <td th:text = "${list.singer}">가수</td>
-                    <td th:text = "${list.boardWriter}">게시글 작성자</td>
-                  </tr>
-                </tbody>
-              </table>
+            <table>
+              <tbody>
+                <tr th:each="list : ${admin_list}" th:onclick="'window.location.href = \'' + @{/admin-post(song_title=${list.boardTitle}, writer=${list.boardWriter})} + '\'' ">
+                  <td th:name="list_title" th:text="${list.boardTitle}">노래제목</td>
+                  <td th:text="${list.singer}">가수</td>
+                  <td th:text="${list.boardWriter}">게시글 작성자</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <!--
-          <ol>
-
-            <li class="category-item">
-              <a href="view-lyrics.html">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates a, ad adipisci suscipit dolor nihil accusamus optio exercitationem fugiat saepe ex repellendus ea labore accusantium praesentium at atque molestiae alias.</a>
-            </li>
-            <li class="category-item">
-              <a href="view-lyrics.html">top</a>
-            </li>
-            <li class="category-item">
-              <a href="view-lyrics.html">top</a>
-            </li>
-            <li class="category-item">
-              <a href="view-lyrics.html">top</a>
-            </li>
-            <li class="category-item">
-              <a href="view-lyrics.html">top</a>
-            </li>
-            <li class="category-item">
-              <a href="view-lyrics.html">top</a>
-            </li>
-            <li class="category-item">
-              <a href="view-lyrics.html">top</a>
-            </li>
-            <li class="category-item">
-              <a href="view-lyrics.html">top</a>
-            </li>
-            <li class="category-item">
-              <a href="view-lyrics.html">top</a>
-            </li>
-            <li class="category-item">
-              <a href="view-lyrics.html">top</a>
-            </li>
-            <li class="category-item">
-              <a href="view-lyrics.html">top</a>
-            </li>
-            <li class="category-item">
-              <a href="view-lyrics.html">top</a>
-            </li>
-            <li class="category-item">
-              <a href="view-lyrics.html">top</a>
-            </li>
-            <li class="category-item">
-              <a href="view-lyrics.html">top</a>
-            </li>
-            <li class="category-item">
-              <a href="view-lyrics.html">top</a>
-            </li>
-            <li class="category-item">
-              <a href="view-lyrics.html">top</a>
-            </li>
-            <li class="category-item">
-              <a href="view-lyrics.html">top</a>
-            </li>
-          </ol>
-          -->
         </div>
       </section>
     </div>
-
-    <footer></footer>
     <script src="https://kit.fontawesome.com/fd5e96c4d0.js" crossorigin="anonymous"></script>
   </body>
 </html>

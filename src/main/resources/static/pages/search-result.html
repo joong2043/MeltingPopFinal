@@ -14,10 +14,7 @@
         <a href="/"><i class="fa-solid fa-compact-disc"></i>MeltingPop</a>
       </h1>
       <form action="/search" method="get" class="nav-search">
-        <input type="text"
-               name="search_title"
-               class="search-box"
-               placeholder="검색어를 입력하세요." />
+        <input type="text" name="search_title" class="search-box" placeholder="검색어를 입력하세요." />
         <button type="submit" class="search-btn">
           <i class="fa-solid fa-magnifying-glass search-icon"></i>
         </button>
@@ -44,110 +41,14 @@
               </tr>
             </thead>
             <tbody>
-              <tr style="cursor:pointer;" th:each="list, stat : ${song_list}" th:onclick = "'window.location.href = \'' + @{/view-lyric(song_title=${list.boardTitle}, singer=${list.singer})} +'\''">
+              <tr style="cursor: pointer" th:each="list, stat : ${song_list}" th:onclick="'window.location.href = \'' + @{/view-lyric(song_title=${list.boardTitle}, singer=${list.singer})} +'\''">
                 <td th:text="|${stat.index}|+1">1</td>
                 <td th:text="${list.boardTitle}">name of the song</td>
                 <td th:text="${list.singer}">name of the artist</td>
                 <td th:text="${list.boardWriter}">name of the writer</td>
               </tr>
-
             </tbody>
           </table>
-<!--
-          <h3>앨범</h3>
-          <table>
-            <thead>
-              <tr>
-                <th width="5%">NO</th>
-                <th width="35%">앨범</th>
-                <th width="60%">아티스트</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>name of the album</td>
-                <td>name of the artist</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>name of the album</td>
-                <td>name of the artist</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>name of the album</td>
-                <td>name of the artist</td>
-              </tr>
-            </tbody>
-          </table>
-
-
-          <h3>아티스트</h3>
-          <table>
-            <thead>
-              <tr>
-                <th width="5%">NO</th>
-                <th width="35%">아티스트</th>
-                <th width="30%">곡</th>
-                <th width="30%">앨범</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>name of the artist</td>
-                <td>name of the song</td>
-                <td>name of the album</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>name of the artist</td>
-                <td>name of the song</td>
-                <td>name of the album</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>name of the artist</td>
-                <td>name of the song</td>
-                <td>name of the album</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <h3>가사</h3>
-          <table>
-            <thead>
-              <tr>
-                <th width="5%">NO</th>
-                <th width="35%">곡</th>
-                <th width="30%">아티스트</th>
-                <th width="30%">앨범</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>name of the song</td>
-                <td>name of the artist</td>
-                <td>name of the album</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>name of the song</td>
-                <td>name of the artist</td>
-                <td>name of the album</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>name of the song</td>
-                <td>name of the artist</td>
-                <td>name of the album</td>
-              </tr>
-            </tbody>
-          </table>
--->
-
         </div>
 
         <div class="tab-item" id="song-tab">

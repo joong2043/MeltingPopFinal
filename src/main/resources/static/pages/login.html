@@ -15,33 +15,33 @@
         <a href="/"><i class="fa-solid fa-compact-disc"></i>MeltingPop</a>
       </h1>
       <th:block>
-      <form action="/login" method="post">
-        <div class="input-area" id="login-email">
-          <input type="email" name="userEmail" id="userEmail" autocomplete="off" required />
-          <label for="userEmail">이메일</label>
-        </div>
-        <div class="input-area" id="login-pw">
-          <input type="password" name="userPw" id="userPw" autocomplete="off" required />
-          <label for="userPw">비밀번호</label>
-        </div>
-        <div class="btn-area">
-          <button type="submit" id="btn">로그인</button>
-        </div>
-      </form>
-      <ul class="usr-opt">
-        <li>
-          <a href="forgot-pw.html" id="forgot-pw">비밀번호 찾기</a>
-        </li>
-        <li class="bar">|</li>
-        <li>
-          <a href="/join" id="join">회원가입</a>
-        </li>
-      </ul>
+        <form action="/login" method="post">
+          <div class="input-area" id="login-email">
+            <input type="email" name="userEmail" id="userEmail" autocomplete="off" required />
+            <label for="userEmail">이메일</label>
+          </div>
+          <div class="input-area" id="login-pw">
+            <input type="password" name="userPw" id="userPw" autocomplete="off" required />
+            <label for="userPw">비밀번호</label>
+          </div>
+          <div class="btn-area">
+            <button type="submit" id="btn">로그인</button>
+          </div>
+        </form>
+        <ul class="usr-opt">
+          <li>
+            <a href="forgot-pw.html" id="forgot-pw">비밀번호 찾기</a>
+          </li>
+          <li class="bar">|</li>
+          <li>
+            <a href="/join" id="join">회원가입</a>
+          </li>
+        </ul>
       </th:block>
     </main>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="../src/js/login.js"></script>
     <script src="https://kit.fontawesome.com/fd5e96c4d0.js" crossorigin="anonymous"></script>
-
   </body>
 </html>

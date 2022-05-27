@@ -1,19 +1,19 @@
-// login, forgot-pw
+// login
 
-let id = $("#id");
-let pw = $("#pw");
-let btn = $("#btn");
+let id = $('#userEmail');
+let pw = $('#userPw');
+let btn = $('#btn');
 
-$(btn).on("click", function () {
-  if ($(id).val() == "") {
-    $(id).next("label").addClass("warning");
+$(btn).on('click', function () {
+  if ($(id).val() == '') {
+    $(id).next('label').addClass('warning');
     setTimeout(function () {
-      $("label").removeClass("warning");
+      $('label').removeClass('warning');
     }, 1500);
-  } else if ($(pw).val() == "") {
-    $(pw).next("label").addClass("warning");
+  } else if ($(pw).val() == '') {
+    $(pw).next('label').addClass('warning');
     setTimeout(function () {
-      $("label").removeClass("warning");
+      $('label').removeClass('warning');
     }, 1500);
   }
 });
